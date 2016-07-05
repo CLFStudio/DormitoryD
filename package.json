@@ -1,0 +1,25 @@
+{
+  "name": "dd",
+  "version": "1.0.0",
+  "description": "DormitoryD System",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MKFMIKU/DormitoryD.git"
+  },
+  "author": "MKFMIKU",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MKFMIKU/DormitoryD/issues"
+  },
+  "homepage": "https://github.com/MKFMIKU/DormitoryD#readme",
+  "devDependencies": {
+    "browser-sync": "^2.13.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-concat": "^2.6.0"
+  }
+}
