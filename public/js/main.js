@@ -21,34 +21,19 @@ var spinner = new Vue({
 var vm = new Vue({
 	el: '#container',
 	ready: function() {
-		if(localStorage.t==1){
-			this.index=this.questions.length-1;
-		}
+		this.$http.get('../ques.json').then(function(response){
+			this.$set('questions', response.json())
+			if(localStorage.t==1){
+				this.index=response.json().length-1;
+			}
+      	}, (response) => {
+			  alert("Error");
+      	});
 	},	
 	data: {
 		index:0,
 		ans:{},
-		questions:[
-    {
-	    "q": "请确定您的年级",
-		"selects":["14级","15级"]
-	},
-	{
-	    "q":"您对现在寝室分配是否满意？",
-		"selects":["满意","不满意"]	
-	},
-    {
-        "q":"您是否想要换过寝室？",
-        "selects":["有过","没有"]
-    },
-    {
-        "q":"你现在的寝室对你影响怎样？",
-        "selects":["正面影响","负面影响","无"]
-    },
-    {
-	    "q":"感谢您的认真填写"
-	}
-]
+		questions:''
 	},
 	methods: {
 		click: function(index,select) {
