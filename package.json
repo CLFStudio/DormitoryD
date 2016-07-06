@@ -16,16 +16,9 @@
     "url": "https://github.com/MKFMIKU/DormitoryD/issues"
   },
   "homepage": "https://github.com/MKFMIKU/DormitoryD#readme",
-  "devDependencies": {
-    "browser-sync": "^2.13.0",
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^3.1.0",
-    "gulp-browserify": "^0.5.1",
-    "gulp-concat": "^2.6.0",
-    "body-parser": "^1.15.2",
-    "express": "^4.14.0"
-  },
   "dependencies": {
-    "mysql": "^2.11.1"
+    "mysql": "^2.11.1",
+    "express": "^4.14.0",
+    "body-parser": "^1.15.2"
   }
 }
