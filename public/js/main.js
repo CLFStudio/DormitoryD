@@ -53,5 +53,6 @@ window.onload = function () {
 	var loader = document.getElementById('loader'),
 		container = document.getElementById('container');
 	loader.style.opacity=0;
+	loader.style.display='none';
 	container.style.opacity=1;
 }
