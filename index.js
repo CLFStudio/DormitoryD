@@ -5,7 +5,7 @@ var express = require('express'),
     mysql = require('mysql'),
     _pool = mysql.createPool({
         host: 'localhost',
-        port: '8889',
+        port: '3306',
         user: 'laber',
         password: 'laber',
         database: 'lab'
