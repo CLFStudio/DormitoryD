@@ -37,16 +37,12 @@ var vm = new Vue({
 	},
 	methods: {
 		click: function(index,select) {
-			var bu = document.getElementById('bu');
 			this.ans[index]=select;
 			this.index=this.index+1;
 			if(this.index==this.questions.length-1&&localStorage.t!=1){
 				this.$http.post('/ans', this.ans).then(function(res) {
 					if(res.body==1) localStorage.t=1;
 				});
-			}
-			if(this.index!=0){
-				bu.style.display="block";
 			}
 		},
 		reverse: function(){
