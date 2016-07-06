@@ -20,9 +20,9 @@
             <ul>
 
                 <li class="question"  transition="item">
-                    <p>{{questions[index].q}}</p>
+                    <p>{{ questions[index].q }}</p>
                     <span v-for="select in questions[index].selects" v-on:click="click(index,select)">
-                        {{select}}
+                        {{ select }}
                     </span>
                 </li>
 
