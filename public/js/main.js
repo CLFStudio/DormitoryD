@@ -21,7 +21,7 @@ var spinner = new Vue({
 var vm = new Vue({
 	el: '#container',
 	ready: function() {
-		this.$http.get('../ques.json').then((response) => {
+		this.$http.get('../ques.json').then(function(response){
 			this.$set('questions', response.json())
 			if(localStorage.t==1){
 				this.index=response.json().length-1;
@@ -37,13 +37,20 @@ var vm = new Vue({
 	},
 	methods: {
 		click: function(index,select) {
+			var bu = document.getElementById('bu');
 			this.ans[index]=select;
 			this.index=this.index+1;
 			if(this.index==this.questions.length-1&&localStorage.t!=1){
-				this.$http.post('/ans', this.ans).then((res) => {
+				this.$http.post('/ans', this.ans).then(function(res) {
 					if(res.body==1) localStorage.t=1;
 				});
 			}
+			if(this.index!=0){
+				bu.style.display="block";
+			}
+		},
+		reverse: function(){
+			this.index=this.index-1;
 		}
 	}	
 });
@@ -53,6 +60,6 @@ window.onload = function () {
 	var loader = document.getElementById('loader'),
 		container = document.getElementById('container');
 	loader.style.opacity=0;
-	loader.style.display='none';
+
 	container.style.opacity=1;
 }
