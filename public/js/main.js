@@ -1,23 +1,5 @@
 Vue.http.options.emulateJSON = true;
 
-var ScaleLoader = VueSpinner.ScaleLoader;
-
-var spinner = new Vue({
-	el: '#loader',
-	components: {
-		ScaleLoader
-	},
-	data () {
-		return {
-			color: '#3AB982',
-            height: '35px',
-            width: '4px',
-            margin: '2px',
-            radius: '2px'
-		}
-	}
-});
-
 var vm = new Vue({
 	el: '#container',
 	ready: function() {
@@ -51,9 +33,6 @@ var vm = new Vue({
 
 
 window.onload = function () {
-	var loader = document.getElementById('loader'),
-		container = document.getElementById('container');
-		loader.style.opacity=0;
-
+	var container = document.getElementById('container');
 	container.style.opacity=1;
 }
