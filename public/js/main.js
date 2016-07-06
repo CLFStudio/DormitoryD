@@ -26,8 +26,6 @@ var vm = new Vue({
 			if(localStorage.t==1){
 				this.index=response.json().length-1;
 			}
-      	}, (response) => {
-			  alert("Error");
       	});
 	},	
 	data: {
