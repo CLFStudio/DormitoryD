@@ -59,7 +59,7 @@ var vm = new Vue({
 window.onload = function () {
 	var loader = document.getElementById('loader'),
 		container = document.getElementById('container');
-	// loader.style.opacity=0;
+		loader.style.opacity=0;
 
 	container.style.opacity=1;
 }
