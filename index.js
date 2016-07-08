@@ -23,8 +23,12 @@ app.post('/ans', function (req, res) {
             conn.query('INSERT INTO `lab`.`datas` (`0`, `1`, `2`, `3`) VALUES (?,?,?,?)',data,function(err){
                 if(!err){
                     res.end('1');
+                }else{
+                    console.log(err);
                 }
             });
+        }else{
+            console.log(err);
         }
     });
 });
