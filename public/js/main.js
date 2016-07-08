@@ -22,6 +22,9 @@ var vm = new Vue({
 			if(this.index==this.questions.length-1&&localStorage.t!=1){
 				this.$http.post('/ans', this.ans).then(function(res) {
 					if(res.body==1) localStorage.t=1;
+					else{
+						alert('Wrong');
+					}
 				});
 			}
 		},
