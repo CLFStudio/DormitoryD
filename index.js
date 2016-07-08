@@ -27,6 +27,7 @@ app.post('/ans', function (req, res) {
                     console.log(err);
                 }
             });
+            conn.release();
         }else{
             console.log(err);
         }
