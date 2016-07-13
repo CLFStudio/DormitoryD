@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin</title>
+    <link href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/admin.css">
+    <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+    <script src="//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="page-header">
+            <h1>问题管理系统<small>only for admin</small></h1>
+        </div>
+
+        <div class="controller">
+            <div class="alert alert-success" role="alert">已填写数：</div>
+        </div>
+
+        <div class="panel panel-default" id="questions">
+            <div class="panel-heading">16级问卷调查
+                <span class="glyphicon glyphicon-plus" aria-hidden="true" id="addQues" v-on:click="addQues"></span>
+            </div>
+            <div class="panel-body">
+                <ul class="list-group">
+                    <li class="list-group-item" v-for="question in questions">
+                        <div class="form-group">
+                            <label>问题 {{ $index+1 }}</label>
+                            <input type="text" class="form-control" placeholder="Question" v-model="question.question">
+                        </div>
+                        <!--<div class="ansGroup">
+                            <button type="button" class="btn btn-info" v-for="ans in question.ans">
+                                {{ ans }}
+                            </button>
+                        </div>-->
+                        <div class="input-group col-lg-2">
+                            <input type="text" class="form-control" placeholder="Add ans">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">Add</button>
+                            </span>
+                        </div>                        
+                    </li> 
+                </ul>
+            </div>
+        </div>
+    </div>
+<script src="//cdn.bootcss.com/vue/1.0.26/vue.min.js"></script>
+<script src="./js/admin.js"></script>
+</body>
+</html>

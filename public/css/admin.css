@@ -1,0 +1,25 @@
+html,body{
+    margin: 0;
+    padding: 0;
+    background-color: #fefefe;
+    font-size: 16px;
+}
+.container{
+    width: 960px;
+    margin: 2rem auto;
+}
+
+.controller{
+    width: 100%;
+}
+#addQues{
+    float: right;
+    cursor: pointer;
+}
+.ansGroup{
+    display: inline-block;
+}
+
+.ansGroup button {
+    margin-right: 1rem;
+}
