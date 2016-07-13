@@ -5,8 +5,6 @@
     <title>Admin</title>
     <link href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./css/admin.css">
-    <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
-    <script src="//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -24,28 +22,30 @@
             </div>
             <div class="panel-body">
                 <ul class="list-group">
-                    <li class="list-group-item" v-for="question in questions">
+                    <li class="list-group-item" v-for="question in quesData.questions">
                         <div class="form-group">
                             <label>问题 {{ $index+1 }}</label>
                             <input type="text" class="form-control" placeholder="Question" v-model="question.question">
                         </div>
-                        <!--<div class="ansGroup">
-                            <button type="button" class="btn btn-info" v-for="ans in question.ans">
+                        <div class="ansGroup col-lg-10">
+                            <button type="button" class="btn btn-default btn-info" disabled="disabled" v-for="ans in question.ans">
                                 {{ ans }}
                             </button>
-                        </div>-->
+                        </div>
                         <div class="input-group col-lg-2">
-                            <input type="text" class="form-control" placeholder="Add ans">
+                            <input type="text" class="form-control" placeholder="Add ans" v-model="tempAns">
                             <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">Add</button>
+                                <button class="btn btn-default" type="button" v-on:click="addAns($index)">Add</button>
                             </span>
                         </div>                        
                     </li> 
                 </ul>
+                <button type="button" class="btn btn-danger" v-on:click="save">提交</button>
             </div>
         </div>
     </div>
 <script src="//cdn.bootcss.com/vue/1.0.26/vue.min.js"></script>
+<script src="//cdn.bootcss.com/vue-resource/0.9.3/vue-resource.min.js"></script>
 <script src="./js/admin.js"></script>
 </body>
 </html>

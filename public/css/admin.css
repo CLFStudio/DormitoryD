@@ -17,7 +17,7 @@ html,body{
     cursor: pointer;
 }
 .ansGroup{
-    display: inline-block;
+    padding: 0;
 }
 
 .ansGroup button {
