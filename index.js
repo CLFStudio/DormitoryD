@@ -3,6 +3,8 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     path = require('path'),
     mysql = require('mysql'),
+    mongoose = require('mongoose'),
+    db = mongoose.createConnection('localhost','data'),
     _pool = mysql.createPool({
         host: 'localhost',
         port: '3306',
@@ -35,9 +37,14 @@ app.post('/ans', function (req, res) {
 });
 
 app.post('/ques', function(req, res){
-    console.log(req.body);
+    var Questions = new mongoose.Schema({
+        questions:[]
+    });
+    var QuestionsModel = db.model('questions',Questions);
+    var questions = new QuestionsModel({questions:req.body});
+    questions.save();
     res.end('1');
-})
+});
 
 var server = app.listen(5000, function () {
   var host = server.address().address;
