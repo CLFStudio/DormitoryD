@@ -26,8 +26,8 @@ var ques = new Vue({
             }
             quesDataNow = JSON.stringify(quesDataNow);
             this.$http.post('/ques', quesDataNow).then(function(res) {
-			    if(res.body==0) alert("提交OK");
-                else alert(res);
+			    if(res.body==1) alert("提交OK");
+                else alert("Wrong");
 			});
         }
     }

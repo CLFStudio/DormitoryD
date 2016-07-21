@@ -38,7 +38,7 @@ app.post('/ques', function(req, res) {
         var collection = db.collection('questions');
         collection.insert(data,function(err,results){
             if(!err) res.end('1');
-            else res.end(err);
+            else console.log(err);
         })
     });
 });
