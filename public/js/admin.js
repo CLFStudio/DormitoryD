@@ -20,7 +20,6 @@ var ques = new Vue({
         },
         save: function () {
             var quesData=this.quesData;
-            console.log(quesData);
             var quesDataNow={
                 time:Date(),
                 data:quesData
