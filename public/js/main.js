@@ -5,7 +5,6 @@ var vm = new Vue({
 	el: '#container',
 	ready: function() {
 		this.$http.get('/questions/get').then(function(response){
-			console.log(response.json().data);
 			this.$set('questions', response.json().data)
 			if(localStorage.t==1){
 				this.index=response.json().length-1;
@@ -24,7 +23,7 @@ var vm = new Vue({
 			if(this.index==this.questions.length-1&&localStorage.t!=1){
 				this.$http.post('/ans/post', this.ans, { emulateJSON: true }).then(function(res) {
 					var ans = JSON.parse(res.body);
-                	if(ans.ok) localStorage.t=1;
+                	if(ans.ok) {localStorage.t=1;alert("提交成功");}
 					else alert("Wrong.Please ask Admin");
 				});
 			}

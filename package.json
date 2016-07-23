@@ -18,6 +18,7 @@
   "homepage": "https://github.com/MKFMIKU/DormitoryD#readme",
   "dependencies": {
     "body-parser": "^1.15.2",
+    "csv-write-stream": "^2.0.0",
     "express": "^4.14.0",
     "mongodb": "^2.2.4",
     "mysql": "^2.11.1"
