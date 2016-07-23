@@ -3,15 +3,23 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     path = require('path'),
     mysql = require('mysql'),
-    MongoClient = require('mongodb').MongoClient,
-    assert = require('assert'),
-    config = require('./config');
+    Data = require('./data');
+
+var ques = new Data();
 
 app.use(bodyParser.urlencoded({
     extended: false
 }));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname + '/public')));
+
+app.get('/getques',function(req, res){
+    var ques = new Data();
+    ques.getQuestions(function(err, docs){
+        if(!err)
+            res.end(docs[docs.length-1]);
+    });
+});
 
 app.post('/ans', function(req, res) {
     _pool.getConnection(function(err, conn) {
@@ -40,6 +48,7 @@ app.post('/ques', function(req, res) {
             if(!err) res.end('1');
             else console.log(err);
         })
+        db.close();
     });
 });
 
