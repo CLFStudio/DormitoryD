@@ -1,19 +1,29 @@
 var MongoClient = require('mongodb').MongoClient,
-    co = require('co'),
     assert = require('assert'),
     config = require('./config');
 
-var QuesData = function () {
+var QuesData = function() {
+
 }
 
-QuesData.prototype.getQuestions = function (callback) {
+QuesData.prototype.getQuestions = function(callback) {
     MongoClient.connect(config.mongodbUrl, function(err, db) {
         console.log("ConnectDB");
-        db.collection('questions').find({}).toArray(function (err, docs) {
-            callback(err, docs);
+        db.collection('questions').find({}).toArray(function(err, docs) {
+            db.close();
+            if(!err) callback(docs);
         });
-        db.close();
-    });    
+    });
+}
+
+QuesData.prototype.setQuestions = function(ques, callback) {
+    MongoClient.connect(config.mongodbUrl, function(err, db) {
+        console.log("ConnectDB");
+        db.collection('questions').insert(ques, function(err, results) {
+            db.close();
+            if(!err) callback(results); 
+        });
+    });
 }
 
 module.exports = QuesData;

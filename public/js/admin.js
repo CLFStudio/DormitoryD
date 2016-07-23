@@ -25,8 +25,9 @@ var ques = new Vue({
                 data:quesData
             }
             quesDataNow = JSON.stringify(quesDataNow);
-            this.$http.post('/ques', quesDataNow).then(function(res) {
-			    if(res.body==1) alert("提交OK");
+            this.$http.post('/questions/post', quesDataNow, { emulateJSON: true }).then(function(res) {
+			    var ans = JSON.parse(res.body);
+                if(ans.ok) alert("Save ok");
                 else alert("Wrong");
 			});
         }
