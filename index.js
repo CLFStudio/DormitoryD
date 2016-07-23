@@ -25,24 +25,10 @@ app.post('/questions/post', function(req, res) {
     })
 });
 
-
-
-app.post('/ans', function(req, res) {
-    _pool.getConnection(function(err, conn) {
-        if (!err) {
-            var data = [req.body['0'], req.body['1'], req.body['2'], req.body['3']];
-            conn.query('INSERT INTO `lab`.`datas` (`0`, `1`, `2`, `3`) VALUES (?,?,?,?)', data, function(err) {
-                if (!err) {
-                    res.end('1');
-                    conn.release();
-                } else {
-                    console.log(err);
-                }
-            });
-        } else {
-            console.log(err);
-        }
-    });
+app.post('/ans/post', function(req, res) {
+    quesData.postAns(req.body, function(results){
+        res.json(results.result);
+    })
 });
 
 app.post('/ques', function(req, res) {

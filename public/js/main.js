@@ -1,10 +1,12 @@
 Vue.http.options.emulateJSON = true;
+Vue.config.devtools = true;
 
 var vm = new Vue({
 	el: '#container',
 	ready: function() {
-		this.$http.get('../ques.json').then(function(response){
-			this.$set('questions', response.json())
+		this.$http.get('/questions/get').then(function(response){
+			console.log(response.json().data);
+			this.$set('questions', response.json().data)
 			if(localStorage.t==1){
 				this.index=response.json().length-1;
 			}
@@ -20,11 +22,10 @@ var vm = new Vue({
 			this.ans[index]=select;
 			this.index=this.index+1;
 			if(this.index==this.questions.length-1&&localStorage.t!=1){
-				this.$http.post('/ans', this.ans).then(function(res) {
-					if(res.body==1) localStorage.t=1;
-					else{
-						alert('Wrong');
-					}
+				this.$http.post('/ans/post', this.ans, { emulateJSON: true }).then(function(res) {
+					var ans = JSON.parse(res.body);
+                	if(ans.ok) localStorage.t=1;
+					else alert("Wrong.Please ask Admin");
 				});
 			}
 		},

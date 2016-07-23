@@ -26,4 +26,14 @@ QuesData.prototype.setQuestions = function(ques, callback) {
     });
 }
 
+QuesData.prototype.postAns = function (ans, callback) {
+    MongoClient.connect(config.mongodbUrl, function (err, db) {
+        console.log("ConnectDB");
+        db.collection('ans').insert(ans, function(err, results) {
+            db.close();
+            if(!err) callback(results); 
+        });
+    });
+}
+
 module.exports = QuesData;
