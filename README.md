@@ -20,9 +20,15 @@ Submit ans-> function subQues(ques,ans);
 
 ## Questions setting
 
-＋＋＋＋＋＋＋＋＋＋＋＋	＋＋＋＋＋＋＋＋＋＋＋＋	＋＋＋＋＋＋＋＋
-＋    Life style	  ＋	＋		Character	  ＋	＋	 Study	  ＋
-＋＋＋＋＋＋＋＋＋＋＋＋	＋＋＋＋＋＋＋＋＋＋＋＋	＋＋＋＋＋＋＋＋
+＋＋＋＋＋＋＋＋＋＋＋＋
+＋    Life style	  
+＋＋＋＋＋＋＋＋＋＋＋＋
+＋＋＋＋＋＋＋＋＋＋＋＋
+＋	 Character    
+＋＋＋＋＋＋＋＋＋＋＋＋
+＋    Study
+＋＋＋＋＋＋＋＋＋＋＋＋
+
 
 They will have different Weight in order to measure one Student in Dormitory.
 
