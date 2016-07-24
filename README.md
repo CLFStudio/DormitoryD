@@ -17,3 +17,13 @@ Submit ans-> function subQues(ques,ans);
 
 1. K-means：Check members into different group. Find whether it could be used in dormitory devide.
 
+
+## Questions setting
+
+＋＋＋＋＋＋＋＋＋＋＋＋	＋＋＋＋＋＋＋＋＋＋＋＋	＋＋＋＋＋＋＋＋
+＋    Life style	  ＋	＋		Character	  ＋	＋	 Study	  ＋
+＋＋＋＋＋＋＋＋＋＋＋＋	＋＋＋＋＋＋＋＋＋＋＋＋	＋＋＋＋＋＋＋＋
+
+They will have different Weight in order to measure one Student in Dormitory.
+
+
