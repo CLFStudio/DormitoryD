@@ -7,11 +7,6 @@
     <link rel="stylesheet" href="./css/main.css">
 </head>
 <body>
-
-    <div id="loader" class="loader">
-        <scale-loader :loading="loading" :color="color" :size="size"></scale-loader>
-    </div>
-
     <div id="container" class="container">
         <div class="title">
             <h1>Thanks for your attention</h1>
@@ -31,9 +26,18 @@
 
     </div>
 
+    <div class="quesMask">
+        <div class="main">
+            <p>请输入学号</p>
+            <input type="number" id="authId">
+            <span id="authIdSub">确定</span>
+        </div>
+    </div>
+
     <footer>
         师大煤业
     </footer>
+    
     <script src="//cdn.bootcss.com/vue/1.0.26/vue.min.js"></script>
     <script src="//cdn.bootcss.com/vue-resource/0.9.3/vue-resource.min.js"></script>
     <script src="./js/main.js"></script>
