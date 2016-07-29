@@ -3,11 +3,13 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     path = require('path'),
     mysql = require('mysql'),
-    QuesData = require('./data');
+    QuesData = require('./data'),
+    packUp = require('./tools/index');
 
 app.use(bodyParser.urlencoded({
     extended: false
 }));
+
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname + '/public')));
 
@@ -31,12 +33,9 @@ app.post('/ans/post', function(req, res) {
     })
 });
 
-app.post('/ques', function(req, res) {
-    var data = req.body;
-    quesData.setQuestions(data, function(err, results) {
-        if (!err) res.end(1);
-        else res.end(0);
-    })
+app.get('/ans/get', function(req, res) {
+    packUp();
+    res.sendFile('public/BackUp.csv');
 });
 
 var server = app.listen(5000, function() {

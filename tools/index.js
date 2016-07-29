@@ -4,7 +4,7 @@ var MongoClient = require('mongodb').MongoClient,
     csvWriter = require('csv-write-stream');
     config = require('../config');
 
-var fileName = "BackUp.csv";
+var fileName = "public/BackUp.csv";
 
 var exportData = function(){
     function toCsv(docs) {
@@ -19,7 +19,6 @@ var exportData = function(){
             for(body in docs[doc]){
                 bodys.push(docs[doc][body]);
             }
-            console.log(bodys);
             writer.write(bodys);
         }
         writer.end();
@@ -30,12 +29,8 @@ var exportData = function(){
         db.collection('ans').find({}).toArray(function(err, docs) {
             db.close();
             toCsv(docs);
-            // var writer = csvWriter(({ headers: ["1", "2"]}));
-            // writer.pipe(fs.createWriteStream('out.csv'));
-            // writer.write(docs);
-            // writer.end();
         });
     });
 }
 
-exportData();
+module.exports = exportData;

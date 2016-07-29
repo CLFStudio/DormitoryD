@@ -36,4 +36,14 @@ QuesData.prototype.postAns = function (ans, callback) {
     });
 }
 
+QuesData.prototype.getAns = function (callback) {
+    MongoClient.connect(config.mongodbUrl, function (err, db) {
+        console.log("ConnectDB");
+        db.collection('ans').find({}).toArray(function(err, docs) {
+            db.close();
+            if(!err) callback(docs);
+        });
+    });
+}
+
 module.exports = QuesData;
