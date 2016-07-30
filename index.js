@@ -28,17 +28,20 @@ app.post('/questions/post', function(req, res) {
 });
 
 app.post('/ans/post', function(req, res) {
-    quesData.postAns(req.body, function(results){
+    quesData.postAns(req.body, function(results) {
         res.json(results.result);
     })
 });
 
 app.get('/ans/get', function(req, res) {
-    packUp();
-    res.sendFile(___dirname+'/public/BackUp.csv');
+    packUp(function(status) {
+        if (status) {
+            res.sendFile(path.join(__dirname, 'public/BackUp.csv'));
+        }
+    });
 });
 
-var server = app.listen(80, function() {
+var server = app.listen(3000, function() {
     var host = server.address().address;
     var port = server.address().port;
     console.log('Listening at http://%s:%s', host, port);

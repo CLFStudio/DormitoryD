@@ -6,7 +6,7 @@ var MongoClient = require('mongodb').MongoClient,
 
 var fileName = "public/BackUp.csv";
 
-var exportData = function(){
+var exportData = function(callback){
     function toCsv(docs) {
         var headersData=[];
         for(d in docs[0]){
@@ -29,6 +29,7 @@ var exportData = function(){
         db.collection('ans').find({}).toArray(function(err, docs) {
             db.close();
             toCsv(docs);
+            callback(1);
         });
     });
 }
