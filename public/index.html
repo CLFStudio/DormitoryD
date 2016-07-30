@@ -15,14 +15,17 @@
             <ul>
                 <li class="question"  transition="item">
                     <p>{{ questions[index].question }}</p>
-                    <span v-for="ans in questions[index].ans" v-on:click="click(index,$index)">
-                        {{ ans }}
-                    </span>
+                    <div class="ansList">
+                        <span v-for="ans in questions[index].ans" v-on:click="click(index,$index)">
+                            {{ ans }}
+                        </span>
+                    </div>
+                    
                 </li>
             </ul>
         </div>
                 
-        <span v-on:click="reverse" class="bu" id="bu"  v-if="index>0&&index<4" >返回</span>
+        <span v-on:click="reverse" class="bu" id="bu"  v-if="index>0&&index<questions.length-1" >返回</span>
 
     </div>
 

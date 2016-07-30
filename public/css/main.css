@@ -129,3 +129,10 @@ footer{
     margin-top: 2rem;
     cursor: pointer;
 }
+
+.ansList{
+    width: 100%;
+}
+.ansList span{
+    display: block;
+}
