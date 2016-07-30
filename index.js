@@ -35,7 +35,7 @@ app.post('/ans/post', function(req, res) {
 
 app.get('/ans/get', function(req, res) {
     packUp();
-    res.sendFile('public/BackUp.csv');
+    res.sendFile(___dirname+'/public/BackUp.csv');
 });
 
 var server = app.listen(80, function() {
