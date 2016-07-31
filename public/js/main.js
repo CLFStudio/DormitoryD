@@ -4,7 +4,7 @@ Vue.config.devtools = true;
 var vm = new Vue({
 	el: '#container',
 	ready: function() {
-		this.$http.get('/questions/get').then(function(response){
+		this.$http.get('/questions.json').then(function(response){
 			this.$set('questions', response.json().data)
 			if(localStorage.r==1){
 				this.index=response.json().length-1;
