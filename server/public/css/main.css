@@ -1,3 +1,6 @@
+*{
+    outline: none;
+}
 html,
 body {
     font-family: 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif;
@@ -73,7 +76,7 @@ body {
 }
 
 .question li span{
-    margin: 1rem;
+    margin: 1.5rem;
     cursor: pointer;
     font-weight: 500;
     font-size: 1.2rem;
@@ -135,4 +138,8 @@ footer{
 }
 .ansList span{
     display: block;
+}
+
+.action-btn.active{
+    background-color: #e3e3e3;
 }

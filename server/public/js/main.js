@@ -48,5 +48,24 @@ window.onload = function () {
 		}
 	})
 	container.style.opacity=1;
-
 }
+
+$(document).on("touchstart", ".action-btn:not(.disable)", function (e) {
+    var $this = $(this);
+    var flag = true;
+    //遍历子类
+    $this.find("*").each(function () {
+        //查看有没有子类触发过active动作
+        if ($(this).hasClass("active")) flag = false;
+    });
+    //如果子类已经触发了active动作，父类则取消active触发操作
+    if (flag) $this.addClass("active");
+});
+
+$(document).on("touchmove", ".action-btn:not(.disable)", function (e) {
+    if ($(this).hasClass("active")) $(this).removeClass("active");
+});
+
+$(document).on("touchend", ".action-btn:not(.disable)", function (e) {
+    if ($(this).hasClass("active")) $(this).removeClass("active");
+});
